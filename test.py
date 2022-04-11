@@ -2,8 +2,8 @@ import myI2Cservo
 from time import sleep
 
 if __name__ == "__main__":
-    s1 = myI2Cservo.MyI2Cservo(1, 20, 180, 60)
-    s2 = myI2Cservo.MyI2Cservo(2, 20, 180, 80)
+    s1 = myI2Cservo.MyI2Cservo270(1, 35, 170, 60)
+    s2 = myI2Cservo.MyI2Cservo270(2, 90, 200, 80)
     s3 = myI2Cservo.MyI2Cservo270(3, 20, 180, 100)
     s4 = myI2Cservo.MyI2Cservo270(4, 20, 180, 120)
     s5 = myI2Cservo.MyI2Cservo270(5, 20, 180, 140)
@@ -16,15 +16,15 @@ if __name__ == "__main__":
     s6.setup()
     sleep(2)
     while True:
-        s1.turn_to(30)
-        s2.turn_to(30)
+        s1.turn_to(50)
+        s2.turn_to(100)
         s3.turn_to(30)
         s4.turn_to(30)
         s5.turn_to(30)
         s6.turn_to(30)
         sleep(1)
         s1.turn_to(120)
-        s2.turn_to(120)
+        s2.turn_to(180)
         s3.turn_to(120)
         s4.turn_to(120)
         s5.turn_to(120)
