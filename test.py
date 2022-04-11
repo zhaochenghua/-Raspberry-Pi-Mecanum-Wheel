@@ -1,25 +1,32 @@
-import smbus
-import time
+import myI2Cservo
+from time import sleep
 
-bus = smbus.SMBus(1)
-pos = [255,90,90,90,90,90,90]
-
-def servo270(port,angle):
-    pos[port] = int(angle*180/270)
-
-def runservo():
-    for x in pos:
-        bus.write_byte(0x08, x)  # 向地址8发送数据
-        time.sleep(0.01)
-
-while 1:
-    # servo270(120,120,90,90,90,90)
-    servo270(1,170)
-    servo270(2,170)
-    runservo()
-    time.sleep(2)  # 延时
-    # servo270(90, 90, 90, 90, 90, 90)
-    servo270(1,90)
-    servo270(2,90)
-    runservo()
-    time.sleep(2)  # 延时
+if __name__ == "__main__":
+    s1 = myI2Cservo.MyI2Cservo(1, 20, 180, 60)
+    s2 = myI2Cservo.MyI2Cservo(2, 20, 180, 80)
+    s3 = myI2Cservo.MyI2Cservo270(3, 20, 180, 100)
+    s4 = myI2Cservo.MyI2Cservo270(4, 20, 180, 120)
+    s5 = myI2Cservo.MyI2Cservo270(5, 20, 180, 140)
+    s6 = myI2Cservo.MyI2Cservo270(6, 20, 180, 160)
+    s1.setup()
+    s2.setup()
+    s3.setup()
+    s4.setup()
+    s5.setup()
+    s6.setup()
+    sleep(2)
+    while True:
+        s1.turn_to(30)
+        s2.turn_to(30)
+        s3.turn_to(30)
+        s4.turn_to(30)
+        s5.turn_to(30)
+        s6.turn_to(30)
+        sleep(1)
+        s1.turn_to(120)
+        s2.turn_to(120)
+        s3.turn_to(120)
+        s4.turn_to(120)
+        s5.turn_to(120)
+        s6.turn_to(120)
+        sleep(1)
